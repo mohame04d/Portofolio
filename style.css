@@ -73,13 +73,13 @@ header .header-content {
   padding: 5em 2em;
 }
 header .header-content div img {
-  max-width: 250px;
+  max-width: 500px;
    box-shadow: 0 0 40px 40px #e6e9ec;
 }
 header .header-content .content-text h2 {
   color: var(--secondary-color);
   font-weight: 500px;
-  font-size: 20px;
+  font-size: 40px;
 }
 header .header-content .content-text h2 span {
   color: var(--primary-color);
@@ -129,7 +129,8 @@ header .header-content .socialicons i:hover {
 .about-content .col-1 h3 {
   color: var(--primary-color);
   margin-bottom: 15px;;
-  letter-spacing: .5px;
+  letter-spacing: 1px;
+  font-size: 30px;
 }
 .about-content .col-1 h3 span {
   color: var(--secondary-color);
@@ -137,6 +138,7 @@ header .header-content .socialicons i:hover {
 .about-content .col-1 p {
   color: var(--gray);
   line-height: 1.7;
+  letter-spacing: 1px;
 }
 .about-content .col-2 p {
   color: var(--gray);
