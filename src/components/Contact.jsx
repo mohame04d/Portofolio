@@ -60,8 +60,8 @@ const Contact = () => {
               <ContactInfo 
                 icon={Mail} 
                 title={t('contact.email')} 
-                value="mohamed.hussein.elnagar@gmail.com" 
-                href="mailto:mohamed.hussein.elnagar@gmail.com"
+                value="mohakim88tr@gmail.com" 
+                href="mailto:mohakim88tr@gmail.com"
               />
               <ContactInfo 
                 icon={Phone} 
