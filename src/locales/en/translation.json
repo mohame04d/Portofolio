@@ -1,0 +1,109 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "🚀 Full Stack MERN Developer",
+    "hi": "Hi, I'm",
+    "name": "Mohamed Elnagar",
+    "description": "I architect and engineer robust, high-performance web applications. Specializing in Node.js, React, and scalable database systems to build solutions that solve complex problems.",
+    "viewWork": "View My Work",
+    "downloadCV": "Download CV",
+    "contactMe": "Contact Me",
+    "typewriter": [
+      "Full Stack MERN Developer",
+      "Backend Engineer",
+      "Node.js Expert",
+      "Problem Solver"
+    ]
+  },
+  "about": {
+    "title1": "About",
+    "title2": "Me",
+    "description": "I am a dedicated professional committed to continuous learning and adopting industry best practices to deliver secure, scalable, and impactful software solutions.",
+    "categories": {
+      "backend": "Backend",
+      "databases": "Databases",
+      "frontend": "Frontend",
+      "api_devops": "API & DevOps",
+      "architecture": "Architecture",
+      "soft_skills": "Soft Skills"
+    },
+    "soft_skills_list": [
+      "Continuous Learning",
+      "Teamwork",
+      "Time Management",
+      "Critical Thinking"
+    ]
+  },
+  "githubStats": {
+    "title1": "Days I",
+    "title2": "Code"
+  },
+  "timeline": {
+    "title1": "Experience &",
+    "title2": "Education",
+    "sprints_title": "Software Engineer Intern",
+    "sprints_org": "Sprints",
+    "sprints_date": "Jun 2025 - Aug 2025",
+    "sprints_desc": "Completed an intensive Web Development training program focusing on modern web technologies. Developed hands-on skills in building responsive, user-centric applications from scratch while following industry best practices. Collaborated on real-world projects that bridged the gap between theoretical concepts and scalable, functional code.",
+    "uni_title": "Bachelor's Degree",
+    "uni_org": "Faculty of Computers & Informatics, Tanta University",
+    "uni_date": "Sep 2022 - Jun 2026",
+    "uni_desc": "Studying core concepts of computer science including Data Structures, Algorithms, OOP, and Software Architecture."
+  },
+  "projects": {
+    "title1": "Featured",
+    "title2": "Projects",
+    "description": "A showcase of my recent backend architectures and full-stack web applications.",
+    "viewDetails": "View Details",
+    "overview": "Overview",
+    "sourceCode": "Source Code",
+    "liveDemo": "Live Demo",
+    "fintech": {
+      "title": "FinTech Banking System",
+      "desc": "Architected a full-stack financial application providing multi-currency account management and automated savings goals tracking.",
+      "details": "Architected a full-stack financial application providing multi-currency account management and automated savings goals tracking. Engineered a secure payment flow integrating Stripe for real-time deposits, with robust backend transaction validations. Implemented 2FA, role-based access control (Admin/User), and a real-time notification system using WebSockets to ensure seamless user and admin experiences."
+    },
+    "dental": {
+      "title": "Dental Clinic Management",
+      "desc": "A comprehensive management system for dental clinics. Built securely with robust authentication and structured patient records.",
+      "details": "A comprehensive management system for dental clinics. The backend ensures secure management of patient records, appointments, and billing. Implemented robust authentication to separate doctor, staff, and patient portals, ensuring data privacy and operational efficiency."
+    },
+    "ecommerce": {
+      "title": "E-Commerce API",
+      "desc": "A robust backend architecture for an E-commerce application built entirely using the NestJS framework.",
+      "details": "This project is a robust backend architecture for an E-commerce application built entirely using the NestJS framework. The system provides comprehensive features including secure authentication (Google OAuth), electronic payment processing, email notifications, and cloud-based media storage."
+    },
+    "store": {
+      "title": "Online Store Platform",
+      "desc": "A full-stack e-commerce platform divided into customer frontend, admin dashboard, and backend server.",
+      "details": "The project is a comprehensive full-stack e-commerce platform divided into three main modules: a customer-facing frontend, an admin dashboard, and a backend server. The system utilizes a modern, interactive UI for a seamless user experience, while securely handling data, user authentication, and payment processing on the backend via a robust RESTful API architecture."
+    }
+  },
+  "contact": {
+    "title1": "Let's",
+    "title2": "Connect",
+    "description": "I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "egypt": "Egypt",
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "Your Name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "your@email.com",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Your Message",
+      "sendButton": "Send Message",
+      "sending": "Sending message...",
+      "success": "Message sent successfully! I will get back to you soon."
+    },
+    "rights": "Mohamed Elnagar. All rights reserved."
+  }
+}
