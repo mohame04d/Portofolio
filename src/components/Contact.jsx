@@ -30,16 +30,33 @@ const Contact = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const loadingToast = toast.loading(t('contact.form.sending'));
     
-    // Simulate API call
-    setTimeout(() => {
+    const formData = new FormData(e.target);
+
+    try {
+      const response = await fetch("https://formspree.io/f/mbdebgzq", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        toast.dismiss(loadingToast);
+        toast.success(t('contact.form.success'));
+        e.target.reset();
+      } else {
+        toast.dismiss(loadingToast);
+        toast.error("Oops! There was a problem submitting your form");
+      }
+    } catch (error) {
       toast.dismiss(loadingToast);
-      toast.success(t('contact.form.success'));
-      e.target.reset();
-    }, 1500);
+      toast.error("Oops! There was a problem submitting your form");
+    }
   };
 
   return (
@@ -90,6 +107,7 @@ const Contact = () => {
                 <input 
                   type="text" 
                   id="name" 
+                  name="name"
                   className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg focus:outline-none focus:border-sky-500 text-slate-200 transition-colors"
                   placeholder={t('contact.form.namePlaceholder')}
                   required
@@ -100,6 +118,7 @@ const Contact = () => {
                 <input 
                   type="email" 
                   id="email" 
+                  name="email"
                   className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg focus:outline-none focus:border-sky-500 text-slate-200 transition-colors"
                   placeholder={t('contact.form.emailPlaceholder')}
                   required
@@ -109,6 +128,7 @@ const Contact = () => {
                 <label htmlFor="message" className="block text-sm font-medium text-slate-400 mb-1">{t('contact.form.messageLabel')}</label>
                 <textarea 
                   id="message" 
+                  name="message"
                   rows="4" 
                   className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg focus:outline-none focus:border-sky-500 text-slate-200 transition-colors resize-none"
                   placeholder={t('contact.form.messagePlaceholder')}
