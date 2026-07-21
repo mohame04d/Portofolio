@@ -7,7 +7,7 @@
     "contact": "Contact"
   },
   "hero": {
-    "badge": "🚀 Full Stack MERN Developer",
+    "badge": "🚀 Full Stack Developer",
     "hi": "Hi, I'm",
     "name": "Mohamed Elnagar",
     "description": "I architect and engineer robust, high-performance web applications. Specializing in Node.js, React, and scalable database systems to build solutions that solve complex problems.",
@@ -15,7 +15,7 @@
     "downloadCV": "Download CV",
     "contactMe": "Contact Me",
     "typewriter": [
-      "Full Stack MERN Developer",
+      "Full Stack Developer",
       "Backend Engineer",
       "Node.js Expert",
       "Problem Solver"

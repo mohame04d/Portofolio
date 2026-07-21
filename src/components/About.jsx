@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Server, Layout, Database, Terminal, Users, Cpu } from 'lucide-react';
 import GithubStats from './GithubStats';
+import SkillsMarquee from './SkillsMarquee';
 import Tilt from 'react-parallax-tilt';
 import { useTranslation } from 'react-i18next';
 
@@ -14,14 +15,14 @@ const SkillCard = ({ title, icon: Icon, skills, delay }) => (
       className="glass-panel p-6 h-full"
     >
       <div className="flex items-center gap-3 mb-4">
-        <div className="p-3 rounded-lg bg-sky-500/10 text-sky-400">
+        <div className="p-3 rounded-lg bg-sky-500/10 text-sky-500 dark:text-sky-400">
           <Icon size={24} />
         </div>
-        <h3 className="text-xl font-semibold text-slate-200">{title}</h3>
+        <h3 className="text-xl font-semibold text-slate-800 dark:text-slate-200 transition-colors">{title}</h3>
       </div>
       <ul className="space-y-2">
         {skills.map((skill, idx) => (
-          <li key={idx} className="text-slate-400 flex items-center gap-2">
+          <li key={idx} className="text-slate-600 dark:text-slate-400 flex items-center gap-2 transition-colors">
             <span className="w-1.5 h-1.5 rounded-full bg-violet-500"></span>
             {skill}
           </li>
@@ -79,15 +80,15 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 border-t border-slate-800">
+    <section id="about" className="py-20 border-t border-slate-200 dark:border-slate-800 transition-colors">
       <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         className="text-center mb-16"
       >
-        <h2 className="text-3xl md:text-5xl font-bold mb-4">{t('about.title1')} <span className="text-gradient">{t('about.title2')}</span></h2>
-        <p className="text-slate-400 max-w-2xl mx-auto">
+        <h2 className="text-3xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white transition-colors">{t('about.title1')} <span className="text-gradient">{t('about.title2')}</span></h2>
+        <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto transition-colors">
           {t('about.description')}
         </p>
       </motion.div>
@@ -97,6 +98,8 @@ const About = () => {
           <SkillCard key={idx} {...category} />
         ))}
       </div>
+
+      <SkillsMarquee />
 
       <GithubStats />
     </section>

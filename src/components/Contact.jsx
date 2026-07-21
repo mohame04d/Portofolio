@@ -11,13 +11,13 @@ const ContactInfo = ({ icon: Icon, title, value, href }) => (
       <Icon size={24} />
     </div>
     <div>
-      <h4 className="text-sm font-medium text-slate-400 mb-1">{title}</h4>
+      <h4 className="text-sm font-medium text-slate-600 dark:text-slate-400 mb-1 transition-colors">{title}</h4>
       {href ? (
-        <a href={href} className="text-lg font-medium text-slate-200 hover:text-sky-400 transition-colors">
+        <a href={href} className="text-lg font-medium text-slate-800 dark:text-slate-200 hover:text-sky-500 dark:hover:text-sky-400 transition-colors">
           {value}
         </a>
       ) : (
-        <p className="text-lg font-medium text-slate-200">{value}</p>
+        <p className="text-lg font-medium text-slate-800 dark:text-slate-200 transition-colors">{value}</p>
       )}
     </div>
   </div>
@@ -60,7 +60,7 @@ const Contact = () => {
   };
 
   return (
-    <footer id="contact" className="relative border-t border-slate-800 bg-slate-900/50 pt-20 pb-10 mt-20">
+    <footer id="contact" className="relative border-t border-slate-200 dark:border-slate-800 bg-slate-100/50 dark:bg-slate-900/50 pt-20 pb-10 mt-20 transition-colors">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
           <motion.div 
@@ -68,8 +68,8 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">{t('contact.title1')} <span className="text-gradient">{t('contact.title2')}</span></h2>
-            <p className="text-slate-400 mb-8 max-w-md leading-relaxed">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white transition-colors">{t('contact.title1')} <span className="text-gradient">{t('contact.title2')}</span></h2>
+            <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-md leading-relaxed transition-colors">
               {t('contact.description')}
             </p>
             
@@ -103,34 +103,34 @@ const Contact = () => {
           >
             <form className="space-y-4" onSubmit={handleSubmit}>
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-slate-400 mb-1">{t('contact.form.nameLabel')}</label>
+                <label htmlFor="name" className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-1 transition-colors">{t('contact.form.nameLabel')}</label>
                 <input 
                   type="text" 
                   id="name" 
                   name="name"
-                  className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg focus:outline-none focus:border-sky-500 text-slate-200 transition-colors"
+                  className="w-full px-4 py-3 bg-white dark:bg-slate-900/50 border border-slate-300 dark:border-slate-700 rounded-lg focus:outline-none focus:border-sky-500 text-slate-800 dark:text-slate-200 transition-colors"
                   placeholder={t('contact.form.namePlaceholder')}
                   required
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-slate-400 mb-1">{t('contact.form.emailLabel')}</label>
+                <label htmlFor="email" className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-1 transition-colors">{t('contact.form.emailLabel')}</label>
                 <input 
                   type="email" 
                   id="email" 
                   name="email"
-                  className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg focus:outline-none focus:border-sky-500 text-slate-200 transition-colors"
+                  className="w-full px-4 py-3 bg-white dark:bg-slate-900/50 border border-slate-300 dark:border-slate-700 rounded-lg focus:outline-none focus:border-sky-500 text-slate-800 dark:text-slate-200 transition-colors"
                   placeholder={t('contact.form.emailPlaceholder')}
                   required
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-slate-400 mb-1">{t('contact.form.messageLabel')}</label>
+                <label htmlFor="message" className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-1 transition-colors">{t('contact.form.messageLabel')}</label>
                 <textarea 
                   id="message" 
                   name="message"
                   rows="4" 
-                  className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg focus:outline-none focus:border-sky-500 text-slate-200 transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-white dark:bg-slate-900/50 border border-slate-300 dark:border-slate-700 rounded-lg focus:outline-none focus:border-sky-500 text-slate-800 dark:text-slate-200 transition-colors resize-none"
                   placeholder={t('contact.form.messagePlaceholder')}
                   required
                 ></textarea>
@@ -145,16 +145,16 @@ const Contact = () => {
           </motion.div>
         </div>
 
-        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-slate-500 text-sm">
+        <div className="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 transition-colors">
+          <p className="text-slate-500 dark:text-slate-400 text-sm transition-colors">
             © {new Date().getFullYear()} {t('contact.rights')}
           </p>
           
           <div className="flex items-center gap-4">
-            <a href="https://github.com/mohame04d" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-sky-400 hover:bg-slate-700 transition-all">
+            <a href="https://github.com/mohame04d" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-400 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-transparent transition-all">
               <FiGithub size={20} />
             </a>
-            <a href="https://linkedin.com/in/mohamed-elnagar-b7ab6a2a2/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-sky-400 hover:bg-slate-700 transition-all">
+            <a href="https://linkedin.com/in/mohamed-elnagar-b7ab6a2a2/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-400 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-transparent transition-all">
               <FiLinkedin size={20} />
             </a>
             <button 

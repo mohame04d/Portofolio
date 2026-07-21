@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, X } from 'lucide-react';
 import { FiGithub } from 'react-icons/fi';
@@ -8,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 const ProjectModal = ({ project, onClose, t }) => {
   if (!project) return null;
 
-  return (
+  return createPortal(
     <AnimatePresence>
       <motion.div 
         initial={{ opacity: 0 }}
@@ -22,7 +23,7 @@ const ProjectModal = ({ project, onClose, t }) => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ type: "spring", damping: 25, stiffness: 300 }}
-          className="bg-slate-800 border border-slate-700 rounded-2xl w-full max-w-3xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]"
+          className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl w-full max-w-3xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh] transition-colors"
           onClick={e => e.stopPropagation()}
         >
           <div className="relative h-64 sm:h-80 w-full flex-shrink-0">
@@ -31,7 +32,7 @@ const ProjectModal = ({ project, onClose, t }) => {
               alt={project.title} 
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-800 to-transparent pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 dark:from-slate-800 to-transparent pointer-events-none"></div>
             <h3 className="absolute bottom-6 left-6 text-3xl font-bold text-white z-10">{project.title}</h3>
             <button 
               onClick={onClose}
@@ -50,14 +51,14 @@ const ProjectModal = ({ project, onClose, t }) => {
               ))}
             </div>
             
-            <h4 className="text-xl font-semibold text-slate-200 mb-3">{t('projects.overview')}</h4>
-            <p className="text-slate-400 leading-relaxed mb-6">
+            <h4 className="text-xl font-semibold text-slate-800 dark:text-slate-200 mb-3 transition-colors">{t('projects.overview')}</h4>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6 transition-colors">
               {project.details || project.description}
             </p>
             
-            <div className="flex gap-4 pt-4 border-t border-slate-700">
+            <div className="flex gap-4 pt-4 border-t border-slate-200 dark:border-slate-700 transition-colors">
               {project.github && (
-                <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 bg-slate-700 hover:bg-slate-600 text-white font-medium rounded-lg transition-colors rtl:flex-row-reverse">
+                <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-white font-medium rounded-lg transition-colors rtl:flex-row-reverse">
                   <FiGithub size={18} /> {t('projects.sourceCode')}
                 </a>
               )}
@@ -70,7 +71,8 @@ const ProjectModal = ({ project, onClose, t }) => {
           </div>
         </motion.div>
       </motion.div>
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 };
 
@@ -89,6 +91,7 @@ const ProjectCard = ({ project, delay, onClick, t }) => (
         <img 
           src={project.image} 
           alt={project.title} 
+          loading="lazy"
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />
         <div className="absolute top-4 right-4 z-20 px-3 py-1 bg-slate-900/80 backdrop-blur-md rounded-full text-xs font-medium text-slate-300 border border-slate-700 group-hover:border-sky-500/50 transition-colors">
@@ -96,9 +99,9 @@ const ProjectCard = ({ project, delay, onClick, t }) => (
         </div>
       </div>
       
-      <div className="p-6 flex flex-col flex-grow bg-slate-800/80">
+      <div className="p-6 flex flex-col flex-grow bg-white/80 dark:bg-slate-800/80 transition-colors">
         <div className="flex justify-between items-start mb-2">
-          <h3 className="text-2xl font-bold text-slate-100 group-hover:text-sky-400 transition-colors pr-2 rtl:pr-0 rtl:pl-2">{project.title}</h3>
+          <h3 className="text-2xl font-bold text-slate-800 dark:text-slate-100 group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors pr-2 rtl:pr-0 rtl:pl-2">{project.title}</h3>
           {project.github && (
             <a 
               href={project.github} 
@@ -112,18 +115,18 @@ const ProjectCard = ({ project, delay, onClick, t }) => (
             </a>
           )}
         </div>
-        <p className="text-slate-400 text-sm mb-4 flex-grow line-clamp-3">
+        <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 flex-grow line-clamp-3 transition-colors">
           {project.description}
         </p>
         
         <div className="flex flex-wrap gap-2">
           {project.tech.slice(0, 4).map((tech, idx) => (
-            <span key={idx} className="px-2.5 py-1 text-xs font-medium bg-slate-900/50 text-slate-300 rounded-md border border-slate-700">
+            <span key={idx} className="px-2.5 py-1 text-xs font-medium bg-slate-100 dark:bg-slate-900/50 text-slate-600 dark:text-slate-300 rounded-md border border-slate-200 dark:border-slate-700 transition-colors">
               {tech}
             </span>
           ))}
           {project.tech.length > 4 && (
-            <span className="px-2.5 py-1 text-xs font-medium bg-slate-900/50 text-slate-500 rounded-md border border-slate-700">
+            <span className="px-2.5 py-1 text-xs font-medium bg-slate-100 dark:bg-slate-900/50 text-slate-500 rounded-md border border-slate-200 dark:border-slate-700 transition-colors">
               +{project.tech.length - 4}
             </span>
           )}
@@ -137,7 +140,7 @@ const Projects = () => {
   const { t } = useTranslation();
   const [selectedProject, setSelectedProject] = useState(null);
 
-  const projectsData = [
+  const projectsData = React.useMemo(() => [
     {
       title: t('projects.fintech.title'),
       description: t('projects.fintech.desc'),
@@ -150,8 +153,8 @@ const Projects = () => {
       title: t('projects.dental.title'),
       description: t('projects.dental.desc'),
       details: t('projects.dental.details'),
-      image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800",
-      tech: ["Node.js", "React", "Express", "MongoDB", "MERN Stack", "JWT"],
+      image: "https://images.unsplash.com/photo-1600170311833-c2cf5280ce49?auto=format&fit=crop&q=80&w=800",
+      tech: ["Node.js", "React", "Express", "MongoDB", "Full Stack", "JWT"],
       github: "https://github.com/mohame04d/Dental_Clinic_Backend.git"
     },
     {
@@ -170,7 +173,7 @@ const Projects = () => {
       tech: ["Node.js", "Express", "MongoDB", "React", "Vite", "Tailwind CSS"],
       github: "https://github.com/mohame04d/Online-Store.git"
     }
-  ];
+  ], [t]);
 
   // Prevent background scrolling when modal is open
   React.useEffect(() => {
@@ -182,15 +185,15 @@ const Projects = () => {
   }, [selectedProject]);
 
   return (
-    <section id="projects" className="py-20 border-t border-slate-800 relative">
+    <section id="projects" className="py-20 border-t border-slate-200 dark:border-slate-800 relative transition-colors">
       <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         className="text-center mb-16"
       >
-        <h2 className="text-3xl md:text-5xl font-bold mb-4">{t('projects.title1')} <span className="text-gradient">{t('projects.title2')}</span></h2>
-        <p className="text-slate-400 max-w-2xl mx-auto">
+        <h2 className="text-3xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white transition-colors">{t('projects.title1')} <span className="text-gradient">{t('projects.title2')}</span></h2>
+        <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto transition-colors">
           {t('projects.description')}
         </p>
       </motion.div>

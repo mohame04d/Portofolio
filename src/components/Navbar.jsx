@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Globe, Moon, Sun } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
+  const { theme, toggleTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -60,14 +62,20 @@ const Navbar = () => {
               <a 
                 key={link.name} 
                 href={link.href} 
-                className={`font-medium transition-colors ${activeSection === link.section ? 'text-sky-400' : 'text-slate-300 hover:text-sky-400'}`}
+                className={`font-medium transition-colors ${activeSection === link.section ? 'text-sky-500 dark:text-sky-400' : 'text-slate-600 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400'}`}
               >
                 {link.name}
               </a>
             ))}
             <button 
+              onClick={toggleTheme}
+              className="text-slate-600 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 focus:outline-none flex items-center"
+            >
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+            <button 
               onClick={toggleLanguage}
-              className="text-slate-300 hover:text-sky-400 font-medium transition-colors flex items-center gap-1"
+              className="text-slate-600 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 font-medium transition-colors flex items-center gap-1"
             >
               <Globe size={18} />
               {i18n.language === 'en' ? 'عربي' : 'EN'}
@@ -77,14 +85,20 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-4">
             <button 
+              onClick={toggleTheme}
+              className="text-slate-600 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 focus:outline-none flex items-center"
+            >
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+            <button 
               onClick={toggleLanguage}
-              className="text-slate-300 hover:text-sky-400 focus:outline-none flex items-center"
+              className="text-slate-600 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 focus:outline-none flex items-center"
             >
               <Globe size={20} />
             </button>
             <button 
               onClick={() => setIsOpen(!isOpen)}
-              className="text-slate-300 hover:text-white focus:outline-none"
+              className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white focus:outline-none"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -105,7 +119,7 @@ const Navbar = () => {
                 key={link.name} 
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`font-medium transition-colors block ${activeSection === link.section ? 'text-sky-400' : 'text-slate-300 hover:text-sky-400'}`}
+                className={`font-medium transition-colors block ${activeSection === link.section ? 'text-sky-500 dark:text-sky-400' : 'text-slate-600 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400'}`}
               >
                 {link.name}
               </a>
